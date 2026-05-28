@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="theme-color" content="#FBFAF7" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Certificados — Marina Felix Borges</title>
+<meta name="description" content="Certificados e formações de Marina Felix Borges — V4 Company, RD Station, mLabs, Figma, FM2S e mais." />
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cream:        #FBFAF7;
+    --cream-deep:   #F4F1EA;
+    --pink-mist:    #FBE7E9;
+    --pink-soft:    #F5D2D7;
+    --pink-rose:    #E8B0B8;
+    --pink-deep:    #C97A85;
+    --ink:          #14110F;
+    --ink-soft:     #2C2622;
+    --gray:         #7A716A;
+    --gray-light:   #C9C1B9;
+    --line:         rgba(20,17,15,0.12);
+    --serif:  "Libre Baskerville", Georgia, serif;
+    --italic: "Libre Baskerville", Georgia, serif;
+    --sans:   "Plus Jakarta Sans", system-ui, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --max-w: 1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+  }
+  ::selection { background: var(--pink-rose); color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 60px);
+  }
+
+  /* ─── Header ──────────────────────────────────────────── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 22px 0;
+    background: rgba(251,250,247,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  .monogram {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+  .monogram::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--pink-rose);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .monogram { font-size: 16px; gap: 8px; }
+    .monogram::before { width: 6px; height: 6px; }
+  }
+  .back-link {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.25s var(--ease);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .back-link::before {
+    content: "←";
+    transition: transform 0.25s var(--ease);
+    display: inline-block;
+  }
+  .back-link:hover { color: var(--pink-deep); }
+  .back-link:hover::before { transform: translateX(-4px); }
+  @media (max-width: 600px) {
+    .back-link { font-size: 10px; letter-spacing: 0.12em; gap: 6px; }
+    .back-link-label { display: none; }
+  }
+
+  /* ─── Hero ──────────────────────────────────────────── */
+  .cert-hero {
+    padding: clamp(70px, 10vw, 130px) 0 clamp(40px, 6vw, 80px);
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-hero::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle at center, var(--pink-mist) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cert-hero .container { position: relative; z-index: 2; }
+  .cert-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cert-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    background: var(--pink-deep);
+  }
+  .cert-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(46px, 7vw, 100px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .cert-title em {
+    font-style: italic;
+    color: var(--pink-deep);
+  }
+  .cert-intro {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 620px;
+  }
+
+  /* ─── Certificate groups ──────────────────────────────────── */
+  .cert-sections {
+    padding: 20px 0 100px;
+  }
+  .cert-group {
+    margin-bottom: 80px;
+  }
+  .cert-group:last-child { margin-bottom: 0; }
+
+  .cert-group-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cert-group-num {
+    font-family: var(--italic);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--pink-deep);
+  }
+  .cert-group-name {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .cert-group-count {
+    margin-left: auto;
+    font-family: var(--italic);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .cert-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 24px;
+    position: relative;
+    transition: all 0.3s var(--ease);
+    overflow: hidden;
+    min-height: 180px;
+  }
+  .cert-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--pink-deep);
+    transition: width 0.4s var(--ease);
+  }
+  .cert-card:hover {
+    background: var(--cream-deep);
+    border-color: var(--pink-rose);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(201, 122, 133, 0.15);
+  }
+  .cert-card:hover::after { width: 100%; }
+
+  .cert-num {
+    font-family: var(--italic);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--pink-deep);
+    margin-bottom: 12px;
+  }
+  .cert-card h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .cert-source {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 24px;
+  }
+  .cert-action {
+    margin-top: auto;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.3s var(--ease);
+  }
+  .cert-card:hover .cert-action { gap: 16px; }
+  .cert-action svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .cert-card.pending {
+    cursor: default;
+    opacity: 0.6;
+  }
+  .cert-card.pending:hover {
+    transform: none;
+    background: var(--cream);
+    border-color: var(--line);
+    box-shadow: none;
+  }
+  .cert-card.pending:hover::after { width: 0; }
+  .cert-card.pending .cert-action {
+    color: var(--gray);
+  }
+
+  /* ─── Footer ──────────────────────────────────────────── */
+  footer {
+    padding: 40px 0;
+    background: var(--ink);
+    color: rgba(251,250,247,0.5);
+    border-top: 1px solid rgba(251,250,247,0.08);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  footer a { transition: color 0.25s var(--ease); }
+  footer a:hover { color: var(--pink-rose); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ─── Lightbox ──────────────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 17, 15, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 4vw, 60px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease);
+  }
+  .lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .lightbox-inner {
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    transform: scale(0.96) translateY(8px);
+    transition: transform 0.45s var(--ease);
+  }
+  .lightbox.is-open .lightbox-inner {
+    transform: scale(1) translateY(0);
+  }
+  .lightbox-media {
+    background: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min(95vw, 1280px);
+    max-height: 82vh;
+    margin: 0 auto;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6);
+    position: relative;
+    min-width: 180px;
+    min-height: 180px;
+  }
+  .lightbox-media img,
+  .lightbox-media canvas {
+    max-width: min(95vw, 1280px);
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+  .lightbox-media.has-embed {
+    width: min(95vw, 1180px);
+    aspect-ratio: 1.4 / 1;
+    max-height: 82vh;
+    background: var(--cream);
+  }
+  .lightbox-media.has-embed.is-portrait {
+    width: min(80vw, 640px);
+    aspect-ratio: 0.72 / 1;
+  }
+  .lightbox-media embed,
+  .lightbox-media iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .lightbox-spinner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--pink-mist);
+    border-top-color: var(--pink-deep);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .lightbox-error {
+    padding: 60px 40px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+  }
+  .lightbox-error a {
+    color: var(--pink-deep);
+    text-decoration: underline;
+    margin-top: 12px;
+    display: inline-block;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -56px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid rgba(251, 250, 247, 0.3);
+    border-radius: 50%;
+    color: var(--cream);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s var(--ease);
+    font-family: var(--sans);
+  }
+  .lightbox-close:hover {
+    background: var(--pink-deep);
+    border-color: var(--pink-deep);
+    transform: rotate(90deg);
+  }
+
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    border: 1px solid rgba(251, 250, 247, 0.3);
+    border-radius: 50%;
+    color: var(--cream);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s var(--ease);
+    z-index: 1001;
+  }
+  .lightbox-nav svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.5;
+    fill: none;
+    stroke: currentColor;
+  }
+  .lightbox-nav.prev { left: clamp(16px, 3vw, 40px); }
+  .lightbox-nav.next { right: clamp(16px, 3vw, 40px); }
+  .lightbox-nav:hover {
+    background: var(--pink-deep);
+    border-color: var(--pink-deep);
+  }
+  .lightbox-nav.prev:hover { transform: translateY(-50%) translateX(-4px); }
+  .lightbox-nav.next:hover { transform: translateY(-50%) translateX(4px); }
+  .lightbox-counter {
+    position: absolute;
+    top: -56px;
+    left: 0;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(251, 250, 247, 0.6);
+    padding-top: 14px;
+  }
+  .lightbox-counter strong {
+    color: var(--pink-rose);
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .lightbox-nav { width: 44px; height: 44px; }
+    .lightbox-nav.prev { left: 8px; }
+    .lightbox-nav.next { right: 8px; }
+  }
+  @media (max-width: 600px) {
+    .lightbox {
+      padding: 60px 12px 20px;
+    }
+    .lightbox-inner {
+      width: 100%;
+      gap: 12px;
+    }
+    .lightbox-counter, .lightbox-close {
+      top: -44px;
+    }
+    .lightbox-close {
+      width: 36px;
+      height: 36px;
+      font-size: 18px;
+    }
+    .lightbox-counter {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+    .lightbox-media {
+      max-width: 100%;
+      max-height: 70vh;
+    }
+    .lightbox-media img,
+    .lightbox-media canvas {
+      max-width: 100%;
+      max-height: 70vh;
+    }
+    .lightbox-media.has-embed {
+      width: 100%;
+      max-height: 65vh;
+    }
+    .lightbox-media.has-embed.is-portrait {
+      width: 100%;
+      max-height: 70vh;
+    }
+    .lightbox-caption h3 {
+      font-size: 18px;
+    }
+    .lightbox-caption p {
+      font-size: 10px;
+    }
+  }
+  .lightbox-caption {
+    text-align: center;
+    color: var(--cream);
+    padding: 0 20px;
+  }
+  .lightbox-caption h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(20px, 2.5vw, 26px);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .lightbox-caption p {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+  }
+  body.lightbox-open { overflow: hidden; }
+
+  /* ─── Custom cursor (desktop only) ────────────────────────── */
+  .cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--pink-deep);
+    margin: -3px 0 0 -3px;
+    will-change: transform;
+  }
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--pink-deep);
+    margin: -18px 0 0 -18px;
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), opacity 0.3s var(--ease);
+    will-change: transform;
+  }
+  .cursor-ring.is-hover {
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    background: rgba(232, 176, 184, 0.18);
+    border-color: transparent;
+  }
+  .cursor-dot.is-active, .cursor-ring.is-active { opacity: 1; }
+  @media (hover: hover) and (pointer: fine) {
+    body.has-custom-cursor,
+    body.has-custom-cursor a,
+    body.has-custom-cursor button,
+    body.has-custom-cursor [role="button"] {
+      cursor: none;
+    }
+  }
+  @media (max-width: 900px), (hover: none), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="monogram">Marina <em style="font-style:italic">Felix Borges</em></a>
+    <a href="index.html" class="back-link"><span class="back-link-label">Voltar ao portfolio</span></a>
+  </div>
+</header>
+
+<section class="cert-hero">
+  <div class="container">
+    <div class="cert-eyebrow">Formação contínua</div>
+    <h1 class="cert-title">Certificados<br/>&amp; <em>Formações</em></h1>
+    <p class="cert-intro">
+      Cursos, treinamentos e formações concluídos ao longo da minha trajetória — V4 Company, RD Station, mLabs, Figma, FM2S, Dale Carnegie e mais. Aprendizado contínuo como hábito.
+    </p>
+  </div>
+</section>
+
+<section class="cert-sections">
+  <div class="container">
+
+    <!-- ─── V4 Company ─────────────────────────────── -->
+    <div class="cert-group">
+      <div class="cert-group-header">
+        <span class="cert-group-num">01</span>
+        <span class="cert-group-name">V4 Company</span>
+        <span class="cert-group-count">12 certificados</span>
+      </div>
+      <div class="cert-grid">
+
+        <a class="cert-card" href="V4-Introducao-as-Vendas.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">01</span>
+          <h3>Introdução às Vendas</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Aquisicao.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">02</span>
+          <h3>Aquisição</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Engajamento.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">03</span>
+          <h3>Engajamento</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="A-Importancia-do-Metodo.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">04</span>
+          <h3>A Importância do Método</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Customer-Experience.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">05</span>
+          <h3>Customer Experience</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Fundamentos-de-Negocios.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">06</span>
+          <h3>Fundamentos de Negócios</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Neuromarketing.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">07</span>
+          <h3>Neuromarketing</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Produto-e-Planejamento.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">08</span>
+          <h3>Produto e Planejamento</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Cientista-do-Marketing.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">09</span>
+          <h3>Tornando-se um Cientista do Marketing</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Alinhando-a-visao-sobre-o-mkt-V4.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">10</span>
+          <h3>Alinhando a Visão sobre Marketing</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Analytical-Logical-Thinking.png" target="_blank" rel="noopener">
+          <span class="cert-num">11</span>
+          <h3>Analytical &amp; Logical Thinking</h3>
+          <span class="cert-source">V4 Company</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Leadership-Skills-Dale-Carnegie.png" target="_blank" rel="noopener">
+          <span class="cert-num">12</span>
+          <h3>Leadership Skills</h3>
+          <span class="cert-source">V4 Company &middot; Dale Carnegie</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── RD Station ─────────────────────────────── -->
+    <div class="cert-group">
+      <div class="cert-group-header">
+        <span class="cert-group-num">02</span>
+        <span class="cert-group-name">RD Station</span>
+        <span class="cert-group-count">2 certificados</span>
+      </div>
+      <div class="cert-grid">
+
+        <a class="cert-card" href="RD-Station-1.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">01</span>
+          <h3>RD Station &mdash; Início</h3>
+          <span class="cert-source">RD Station</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="RD-Station-Vendas.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">02</span>
+          <h3>RD Station &mdash; Vendas</h3>
+          <span class="cert-source">RD Station</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── mLabs ─────────────────────────────── -->
+    <div class="cert-group">
+      <div class="cert-group-header">
+        <span class="cert-group-num">03</span>
+        <span class="cert-group-name">mLabs</span>
+        <span class="cert-group-count">2 certificados</span>
+      </div>
+      <div class="cert-grid">
+
+        <a class="cert-card" href="mLabs.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">01</span>
+          <h3>mLabs</h3>
+          <span class="cert-source">mLabs</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="mLabs-Dashgoo.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">02</span>
+          <h3>mLabs Dashgoo</h3>
+          <span class="cert-source">mLabs</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── FM2S ─────────────────────────────── -->
+    <div class="cert-group">
+      <div class="cert-group-header">
+        <span class="cert-group-num">04</span>
+        <span class="cert-group-name">FM2S &middot; Lean Six Sigma</span>
+        <span class="cert-group-count">2 certificados</span>
+      </div>
+      <div class="cert-grid">
+
+        <a class="cert-card" href="FM2S-Yellow-Belt.png" target="_blank" rel="noopener">
+          <span class="cert-num">01</span>
+          <h3>Lean Six Sigma &mdash; Yellow Belt</h3>
+          <span class="cert-source">FM2S &middot; 24h</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="FM2S-White-Belt.png" target="_blank" rel="noopener">
+          <span class="cert-num">02</span>
+          <h3>Lean Six Sigma &mdash; White Belt</h3>
+          <span class="cert-source">FM2S &middot; 8h</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ─── Outros ─────────────────────────────── -->
+    <div class="cert-group">
+      <div class="cert-group-header">
+        <span class="cert-group-num">05</span>
+        <span class="cert-group-name">Ferramentas &amp; Comunicação</span>
+        <span class="cert-group-count">3 certificados</span>
+      </div>
+      <div class="cert-grid">
+
+        <a class="cert-card" href="Figma.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">01</span>
+          <h3>Figma</h3>
+          <span class="cert-source">Design &amp; Prototipação</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Pacote-Office.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">02</span>
+          <h3>Pacote Office</h3>
+          <span class="cert-source">Microsoft</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+        <a class="cert-card" href="Plano-de-Comunicacao-Interna.pdf" target="_blank" rel="noopener">
+          <span class="cert-num">03</span>
+          <h3>Plano de Comunicação Interna</h3>
+          <span class="cert-source">Endomarketing</span>
+          <span class="cert-action">
+            Abrir certificado
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Marina Felix Borges</span>
+    <a href="index.html"><span>Voltar ao portfolio →</span></a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+  <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Certificado anterior">
+    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Próximo certificado">
+    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="lightbox-inner">
+    <span class="lightbox-counter" id="lightboxCounter"></span>
+    <button class="lightbox-close" type="button" aria-label="Fechar visualização">&times;</button>
+    <div class="lightbox-media" id="lightboxMedia"></div>
+    <div class="lightbox-caption">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxSource"></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const media = document.getElementById('lightboxMedia');
+  const titleEl = document.getElementById('lightboxTitle');
+  const sourceEl = document.getElementById('lightboxSource');
+  const counterEl = document.getElementById('lightboxCounter');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+
+  const cards = Array.from(document.querySelectorAll('.cert-card[href]'));
+  const items = cards.map(card => {
+    const titleNode = card.querySelector('h3');
+    const sourceNode = card.querySelector('.cert-source');
+    return {
+      url: card.getAttribute('href'),
+      title: titleNode ? titleNode.textContent.trim() : '',
+      source: sourceNode ? sourceNode.textContent.trim() : ''
+    };
+  });
+  let currentIndex = -1;
+
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
+  function resetMediaClasses() {
+    media.classList.remove('is-portrait', 'has-embed');
+  }
+
+  function setOrientation(isPortrait) {
+    media.classList.toggle('is-portrait', !!isPortrait);
+  }
+
+  function showSpinner() {
+    resetMediaClasses();
+    media.innerHTML = '<div class="lightbox-spinner" aria-hidden="true"></div>';
+  }
+
+  function showError(url) {
+    resetMediaClasses();
+    media.innerHTML = '<div class="lightbox-error">Não foi possível carregar o certificado.<br/><a href="' + url + '" target="_blank" rel="noopener">Abrir em nova aba →</a></div>';
+  }
+
+  function renderImage(url, alt) {
+    const img = new Image();
+    img.alt = alt;
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      let displayEl = img;
+      try {
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = img.naturalWidth;
+        tempCanvas.height = img.naturalHeight;
+        const tctx = tempCanvas.getContext('2d');
+        tctx.drawImage(img, 0, 0);
+        const cropped = autoCropCanvas(tempCanvas);
+        if (cropped !== tempCanvas) {
+          cropped.style.maxWidth = 'min(95vw, 1200px)';
+          cropped.style.maxHeight = '72vh';
+          cropped.style.width = 'auto';
+          cropped.style.height = 'auto';
+          displayEl = cropped;
+        }
+      } catch (e) {
+        /* CORS or other error - use raw img */
+      }
+      resetMediaClasses();
+      const w = displayEl === img ? img.naturalWidth : displayEl.width;
+      const h = displayEl === img ? img.naturalHeight : displayEl.height;
+      setOrientation(h > w);
+      media.innerHTML = '';
+      media.appendChild(displayEl);
+    };
+    img.onerror = () => showError(url);
+    img.src = url;
+  }
+
+  function renderPdfEmbed(url, portrait) {
+    resetMediaClasses();
+    media.classList.add('has-embed');
+    setOrientation(portrait);
+    const cleanUrl = encodeURI(url) + '#toolbar=0&navpanes=0&scrollbar=0&view=Fit';
+    media.innerHTML = '<embed src="' + cleanUrl + '" type="application/pdf" />';
+  }
+
+  function autoCropCanvas(canvas) {
+    try {
+      const w = canvas.width;
+      const h = canvas.height;
+      if (w * h > 6000000) return canvas;
+      const ctx = canvas.getContext('2d');
+      const imgData = ctx.getImageData(0, 0, w, h);
+      const data = imgData.data;
+      let minX = w, minY = h, maxX = 0, maxY = 0;
+      let hasContent = false;
+      const step = Math.max(1, Math.floor(Math.min(w, h) / 400));
+      for (let y = 0; y < h; y += step) {
+        for (let x = 0; x < w; x += step) {
+          const i = (y * w + x) * 4;
+          const r = data[i], g = data[i+1], b = data[i+2];
+          const isLight = r > 238 && g > 238 && b > 232;
+          if (!isLight) {
+            hasContent = true;
+            if (x < minX) minX = x;
+            if (y < minY) minY = y;
+            if (x > maxX) maxX = x;
+            if (y > maxY) maxY = y;
+          }
+        }
+      }
+      if (!hasContent) return canvas;
+      const margin = Math.floor(Math.min(w, h) * 0.015);
+      minX = Math.max(0, minX - margin);
+      minY = Math.max(0, minY - margin);
+      maxX = Math.min(w - 1, maxX + margin);
+      maxY = Math.min(h - 1, maxY + margin);
+      const cropW = maxX - minX + 1;
+      const cropH = maxY - minY + 1;
+      if (cropW > w * 0.93 && cropH > h * 0.93) return canvas;
+      const newCanvas = document.createElement('canvas');
+      newCanvas.width = cropW;
+      newCanvas.height = cropH;
+      const newCtx = newCanvas.getContext('2d');
+      newCtx.drawImage(canvas, minX, minY, cropW, cropH, 0, 0, cropW, cropH);
+      return newCanvas;
+    } catch (e) {
+      return canvas;
+    }
+  }
+
+  function loadPdfArrayBuffer(url) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'arraybuffer';
+      xhr.onload = () => {
+        const ok = (xhr.status === 200) || (xhr.status === 0 && xhr.response && xhr.response.byteLength > 0);
+        if (ok) resolve(xhr.response);
+        else reject(new Error('status ' + xhr.status));
+      };
+      xhr.onerror = () => reject(new Error('xhr error'));
+      xhr.send();
+    });
+  }
+
+  function renderPdf(url) {
+    if (!window.pdfjsLib) {
+      renderPdfEmbed(url, false);
+      return;
+    }
+    loadPdfArrayBuffer(url).then(data => {
+      return pdfjsLib.getDocument({ data: data }).promise;
+    }).then(pdf => {
+      return pdf.getPage(1);
+    }).then(page => {
+      const baseViewport = page.getViewport({ scale: 1 });
+      const isPortrait = baseViewport.height > baseViewport.width;
+
+      const dpr = window.devicePixelRatio || 1;
+      const isMobile = window.innerWidth <= 600;
+      const maxH = window.innerHeight * (isMobile ? 0.65 : 0.82);
+      const maxW = isMobile ? window.innerWidth * 0.96 : Math.min(1280, window.innerWidth * 0.95);
+      const fitScale = Math.min(maxW / baseViewport.width, maxH / baseViewport.height);
+      const scale = fitScale * dpr;
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      canvas.style.width = (viewport.width / dpr) + 'px';
+      canvas.style.height = (viewport.height / dpr) + 'px';
+      return page.render({ canvasContext: ctx, viewport: viewport }).promise.then(() => {
+        const finalCanvas = autoCropCanvas(canvas);
+        finalCanvas.style.width = (finalCanvas.width / dpr) + 'px';
+        finalCanvas.style.height = (finalCanvas.height / dpr) + 'px';
+        const cropIsPortrait = finalCanvas.height > finalCanvas.width;
+        resetMediaClasses();
+        setOrientation(cropIsPortrait);
+        media.innerHTML = '';
+        media.appendChild(finalCanvas);
+      });
+    }).catch(() => renderPdfEmbed(url, false));
+  }
+
+  function renderAt(index) {
+    const item = items[index];
+    if (!item) return;
+    currentIndex = index;
+    titleEl.textContent = item.title;
+    sourceEl.textContent = item.source;
+    counterEl.innerHTML = '<strong>' + String(index + 1).padStart(2, '0') + '</strong> / ' + String(items.length).padStart(2, '0');
+    showSpinner();
+    const ext = item.url.split('.').pop().toLowerCase().split('?')[0];
+    if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'].includes(ext)) {
+      renderImage(item.url, item.title);
+    } else if (ext === 'pdf') {
+      renderPdf(item.url);
+    } else {
+      showError(item.url);
+    }
+  }
+
+  function openLightbox(index) {
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    renderAt(index);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    setTimeout(() => { media.innerHTML = ''; }, 400);
+    currentIndex = -1;
+  }
+
+  function navigate(direction) {
+    if (currentIndex < 0 || items.length === 0) return;
+    const next = (currentIndex + direction + items.length) % items.length;
+    renderAt(next);
+  }
+
+  cards.forEach((card, index) => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', () => navigate(-1));
+  nextBtn.addEventListener('click', () => navigate(1));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') navigate(-1);
+    else if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
+
+/* Custom cursor (desktop with fine pointer + motion allowed) */
+(function() {
+  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supportsHover || reduceMotion) return;
+
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  document.body.classList.add('has-custom-cursor');
+
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let ringX = mouseX, ringY = mouseY;
+  let active = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = 'translate3d(' + mouseX + 'px,' + mouseY + 'px,0)';
+    if (!active) {
+      active = true;
+      dot.classList.add('is-active');
+      ring.classList.add('is-active');
+    }
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    active = false;
+    dot.classList.remove('is-active');
+    ring.classList.remove('is-active');
+  });
+  document.addEventListener('mouseenter', () => {
+    active = true;
+    dot.classList.add('is-active');
+    ring.classList.add('is-active');
+  });
+
+  function tick() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0)';
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  const interactiveSelector = 'a, button, [role="button"], .cert-card, .back-link, .lightbox-nav, .lightbox-close';
+  document.querySelectorAll(interactiveSelector).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
+  });
+})();
+</script>
+
+</body>
+</html>
