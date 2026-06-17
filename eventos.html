@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="theme-color" content="#FBFAF7" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eventos — Marina Felix Borges</title>
+<meta name="description" content="Bastidores e registros dos eventos produzidos por Marina Felix Borges — live marketing, eventos corporativos e endomarketing na V4 Company." />
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cream:        #FBFAF7;
+    --cream-deep:   #F4F1EA;
+    --pink-mist:    #FBE7E9;
+    --pink-soft:    #F5D2D7;
+    --pink-rose:    #E8B0B8;
+    --pink-deep:    #C97A85;
+    --ink:          #14110F;
+    --ink-soft:     #2C2622;
+    --gray:         #7A716A;
+    --gray-light:   #C9C1B9;
+    --line:         rgba(20,17,15,0.12);
+    --serif:  "Libre Baskerville", Georgia, serif;
+    --italic: "Libre Baskerville", Georgia, serif;
+    --sans:   "Plus Jakarta Sans", system-ui, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --max-w: 1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+  }
+  ::selection { background: var(--pink-rose); color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 60px);
+  }
+
+  /* ─── Header ──────────────────────────────────────────── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 22px 0;
+    background: rgba(251,250,247,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  .monogram {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+  .monogram::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--pink-rose);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .monogram { font-size: 16px; gap: 8px; }
+    .monogram::before { width: 6px; height: 6px; }
+  }
+  .back-link {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.25s var(--ease);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .back-link::before {
+    content: "←";
+    transition: transform 0.25s var(--ease);
+    display: inline-block;
+  }
+  .back-link:hover { color: var(--pink-deep); }
+  .back-link:hover::before { transform: translateX(-4px); }
+  @media (max-width: 600px) {
+    .back-link { font-size: 10px; letter-spacing: 0.12em; gap: 6px; }
+    .back-link-label { display: none; }
+  }
+
+  /* ─── Hero ──────────────────────────────────────────── */
+  .work-hero {
+    padding: clamp(70px, 10vw, 130px) 0 clamp(30px, 4vw, 52px);
+    position: relative;
+    overflow: hidden;
+  }
+  .work-hero::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle at center, var(--pink-mist) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .work-hero .container { position: relative; z-index: 2; }
+  .work-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .work-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 1px;
+    background: var(--pink-deep);
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(46px, 7vw, 100px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .work-title em { font-style: italic; color: var(--pink-deep); }
+  .work-intro {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 660px;
+  }
+
+  /* ─── Masonry gallery ─────────────────────────────────── */
+  .work-sections { padding: 28px 0 100px; }
+  .events-masonry {
+    column-count: 3;
+    column-gap: 16px;
+  }
+  @media (max-width: 900px) { .events-masonry { column-count: 2; column-gap: 12px; } }
+  @media (max-width: 520px) { .events-masonry { column-count: 1; } }
+
+  .event-photo {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--cream-deep);
+    border: 1px solid var(--line);
+    display: block;
+    width: 100%;
+  }
+  @media (max-width: 900px) { .event-photo { margin-bottom: 12px; } }
+  .event-photo img,
+  .event-photo video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.7s var(--ease), filter 0.4s var(--ease);
+  }
+  .event-photo:hover video { transform: scale(1.05); }
+  .event-photo .play-badge {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .event-photo .play-badge > span {
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: rgba(251,250,247,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px -8px rgba(20,17,15,0.4);
+    transition: transform 0.35s var(--ease);
+  }
+  .event-photo:hover .play-badge > span { transform: scale(1.08); }
+  .event-photo .play-badge > span::after {
+    content: "";
+    margin-left: 5px;
+    border-style: solid;
+    border-width: 10px 0 10px 16px;
+    border-color: transparent transparent transparent var(--pink-deep);
+  }
+  .event-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20,17,15,0.28) 0%, transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+  }
+  .event-photo:hover { border-color: var(--pink-rose); }
+  .event-photo:hover img { transform: scale(1.05); }
+  .event-photo:hover::after { opacity: 1; }
+  .event-photo .expand {
+    position: absolute;
+    bottom: 12px; right: 12px;
+    z-index: 2;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: rgba(251,250,247,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    backdrop-filter: blur(4px);
+  }
+  .event-photo .expand svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
+  .event-photo:hover .expand { opacity: 1; transform: scale(1); }
+
+  /* Empty state */
+  .work-empty {
+    text-align: center;
+    padding: 60px 24px 80px;
+    border: 1px dashed var(--pink-rose);
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--cream-deep) 0%, var(--pink-mist) 100%);
+  }
+  .work-empty h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3vw, 30px); margin-bottom: 14px; }
+  .work-empty h3 em { font-style: italic; color: var(--pink-deep); }
+  .work-empty p { font-size: 15px; color: var(--ink-soft); max-width: 460px; margin: 0 auto; line-height: 1.6; }
+  .work-empty code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; background: rgba(20,17,15,0.06); padding: 2px 8px; border-radius: 4px; color: var(--pink-deep); }
+
+  /* ─── Footer ──────────────────────────────────────────── */
+  footer {
+    padding: 40px 0;
+    background: var(--ink);
+    color: rgba(251,250,247,0.5);
+    border-top: 1px solid rgba(251,250,247,0.08);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  footer a { transition: color 0.25s var(--ease); }
+  footer a:hover { color: var(--pink-rose); }
+
+  /* ─── Lightbox ──────────────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 17, 15, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 4vw, 60px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease);
+  }
+  .lightbox.is-open { opacity: 1; pointer-events: auto; }
+  .lightbox-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    max-width: 100%;
+    transform: scale(0.96) translateY(8px);
+    transition: transform 0.45s var(--ease);
+  }
+  .lightbox.is-open .lightbox-inner { transform: scale(1) translateY(0); }
+  .lightbox-media {
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min(95vw, 1280px);
+    max-height: min(82vh, calc(100vh - 170px));
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6);
+    position: relative;
+    min-width: 160px;
+    min-height: 120px;
+  }
+  .lightbox-media img,
+  .lightbox-media video {
+    max-width: min(95vw, 1280px);
+    max-height: min(82vh, calc(100vh - 170px));
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .lightbox-spinner {
+    position: absolute;
+    width: 36px; height: 36px;
+    border: 2px solid var(--pink-mist);
+    border-top-color: var(--pink-deep);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .lightbox-close {
+    position: absolute;
+    top: -56px; right: 0;
+    width: 44px; height: 44px;
+    background: transparent;
+    border: 1px solid rgba(251, 250, 247, 0.3);
+    border-radius: 50%;
+    color: var(--cream);
+    font-size: 22px; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s var(--ease);
+  }
+  .lightbox-close:hover { background: var(--pink-deep); border-color: var(--pink-deep); transform: rotate(90deg); }
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px; height: 56px;
+    background: transparent;
+    border: 1px solid rgba(251, 250, 247, 0.3);
+    border-radius: 50%;
+    color: var(--cream);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s var(--ease);
+    z-index: 1001;
+  }
+  .lightbox-nav svg { width: 22px; height: 22px; stroke-width: 1.5; fill: none; stroke: currentColor; }
+  .lightbox-nav.prev { left: clamp(16px, 3vw, 40px); }
+  .lightbox-nav.next { right: clamp(16px, 3vw, 40px); }
+  .lightbox-nav:hover { background: var(--pink-deep); border-color: var(--pink-deep); }
+  .lightbox-nav.prev:hover { transform: translateY(-50%) translateX(-4px); }
+  .lightbox-nav.next:hover { transform: translateY(-50%) translateX(4px); }
+  .lightbox-counter {
+    position: absolute;
+    top: -52px; left: 0;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(251, 250, 247, 0.6);
+  }
+  .lightbox-counter strong { color: var(--pink-rose); font-weight: 500; }
+  body.lightbox-open { overflow: hidden; }
+  @media (max-width: 640px) {
+    .lightbox-nav { width: 44px; height: 44px; }
+    .lightbox-nav.prev { left: 8px; }
+    .lightbox-nav.next { right: 8px; }
+  }
+  @media (max-width: 600px) {
+    .lightbox-close { top: -44px; width: 36px; height: 36px; font-size: 18px; }
+    .lightbox-counter { top: -40px; font-size: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* ─── Custom cursor (desktop only) ────────────────────────── */
+  .cursor-dot, .cursor-ring {
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    border-radius: 50%; opacity: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+  .cursor-dot { width: 6px; height: 6px; background: var(--pink-deep); margin: -3px 0 0 -3px; will-change: transform; }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--pink-deep);
+    margin: -18px 0 0 -18px;
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), opacity 0.3s var(--ease);
+    will-change: transform;
+  }
+  .cursor-ring.is-hover { width: 60px; height: 60px; margin: -30px 0 0 -30px; background: rgba(232, 176, 184, 0.18); border-color: transparent; }
+  .cursor-dot.is-active, .cursor-ring.is-active { opacity: 1; }
+  @media (hover: hover) and (pointer: fine) {
+    body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button, body.has-custom-cursor [role="button"] { cursor: none; }
+  }
+  @media (max-width: 900px), (hover: none), (pointer: coarse) { .cursor-dot, .cursor-ring { display: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .cursor-dot, .cursor-ring { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="monogram">Marina <em style="font-style:italic">Felix Borges</em></a>
+    <a href="index.html" class="back-link"><span class="back-link-label">Voltar ao portfolio</span></a>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="container">
+    <div class="work-eyebrow">Eventos · Live Marketing · Endomarketing</div>
+    <h1 class="work-title">Nos bastidores<br/>dos <em>eventos</em></h1>
+    <p class="work-intro">
+      Registros dos eventos que produzi — do planejamento ao palco. Eventos corporativos,
+      treinamentos, ações de endomarketing e os grandes encontros da V4 Company, como
+      Alavanca e Fábrica de Receita.
+    </p>
+  </div>
+</section>
+
+<section class="work-sections">
+  <div class="container">
+    <div class="events-masonry" id="eventsRoot">
+      <!-- Fotos renderizadas via JS a partir do array PHOTOS abaixo -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Marina Felix Borges</span>
+    <a href="index.html"><span>Voltar ao portfolio →</span></a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visualização de foto">
+  <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Foto anterior">
+    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Próxima foto">
+    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="lightbox-inner">
+    <span class="lightbox-counter" id="lightboxCounter"></span>
+    <button class="lightbox-close" type="button" aria-label="Fechar visualização">&times;</button>
+    <div class="lightbox-media" id="lightboxMedia"></div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   FOTOS DE EVENTOS — para adicionar/remover, edite esta lista.
+   Os arquivos ficam na pasta eventos-fotos/.
+   ════════════════════════════════════════════════════════════════ */
+const PHOTOS = [
+  "eventos-fotos/evento-video-01.mp4",
+  "eventos-fotos/evento-video-02.mp4",
+  "eventos-fotos/evento-01.jpg",
+  "eventos-fotos/evento-02.jpg",
+  "eventos-fotos/evento-03.jpg",
+  "eventos-fotos/evento-04.jpg",
+  "eventos-fotos/evento-05.jpg",
+  "eventos-fotos/evento-06.jpg",
+  "eventos-fotos/evento-07.jpg",
+  "eventos-fotos/evento-08.jpg",
+  "eventos-fotos/evento-09.jpg",
+  "eventos-fotos/evento-10.jpg",
+  "eventos-fotos/evento-11.jpg",
+  "eventos-fotos/evento-12.jpg",
+  "eventos-fotos/evento-13.jpg",
+  "eventos-fotos/evento-14.jpg",
+  "eventos-fotos/evento-15.jpg",
+  "eventos-fotos/evento-16.jpg"
+];
+
+(function() {
+  const root = document.getElementById('eventsRoot');
+
+  if (!PHOTOS.length) {
+    root.innerHTML =
+      '<div class="work-empty"><h3>Galeria em <em>preparação</em></h3>' +
+      '<p>As fotos serão adicionadas em breve. Coloque os arquivos em <code>eventos-fotos/</code> e liste-os no array <code>PHOTOS</code>.</p></div>';
+    return;
+  }
+
+  const expandSVG = '<svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>';
+  const isVideo = (s) => /\.(mp4|webm|mov|ogg)$/i.test(s.split('?')[0]);
+
+  let html = '';
+  PHOTOS.forEach((src, i) => {
+    const vid = isVideo(src);
+    html += '<div class="event-photo' + (vid ? ' is-video' : '') + '" data-index="' + i + '" role="button" tabindex="0" aria-label="' + (vid ? 'Reproduzir vídeo ' : 'Ampliar foto ') + (i + 1) + '">';
+    if (vid) {
+      html += '<video src="' + encodeURI(src) + '#t=0.3" muted playsinline preload="metadata" onerror="this.parentNode.remove();"></video>';
+      html += '<span class="play-badge" aria-hidden="true"><span></span></span>';
+    } else {
+      html += '<img src="' + encodeURI(src) + '" alt="Foto de evento ' + (i + 1) + '" loading="lazy" onerror="this.parentNode.remove();" />';
+      html += '<span class="expand" aria-hidden="true">' + expandSVG + '</span>';
+    }
+    html += '</div>';
+  });
+  root.innerHTML = html;
+
+  /* ─── Lightbox ─────────────────────────────────────────── */
+  const lightbox = document.getElementById('lightbox');
+  const media = document.getElementById('lightboxMedia');
+  const counterEl = document.getElementById('lightboxCounter');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  let currentIndex = -1;
+
+  function renderAt(index) {
+    const src = PHOTOS[index];
+    if (!src) return;
+    currentIndex = index;
+    counterEl.innerHTML = '<strong>' + String(index + 1).padStart(2, '0') + '</strong> / ' + String(PHOTOS.length).padStart(2, '0');
+    media.innerHTML = '<div class="lightbox-spinner" aria-hidden="true"></div>';
+    if (isVideo(src)) {
+      const v = document.createElement('video');
+      v.src = encodeURI(src);
+      v.controls = true; v.autoplay = true; v.playsInline = true;
+      v.onloadeddata = () => { media.innerHTML = ''; media.appendChild(v); };
+      v.onerror = () => { media.innerHTML = '<div style="padding:40px;color:#fff">Não foi possível carregar o vídeo.</div>'; };
+    } else {
+      const img = new Image();
+      img.alt = 'Foto de evento ' + (index + 1);
+      img.onload = () => { media.innerHTML = ''; media.appendChild(img); };
+      img.onerror = () => { media.innerHTML = '<div style="padding:40px;color:#fff">Não foi possível carregar a foto.</div>'; };
+      img.src = encodeURI(src);
+    }
+  }
+  function openLightbox(i) {
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    renderAt(i);
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    setTimeout(() => { media.innerHTML = ''; }, 400);
+    currentIndex = -1;
+  }
+  function navigate(dir) {
+    if (currentIndex < 0) return;
+    renderAt((currentIndex + dir + PHOTOS.length) % PHOTOS.length);
+  }
+
+  root.querySelectorAll('.event-photo').forEach(el => {
+    const i = parseInt(el.getAttribute('data-index'), 10);
+    el.addEventListener('click', () => openLightbox(i));
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', () => navigate(-1));
+  nextBtn.addEventListener('click', () => navigate(1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') navigate(-1);
+    else if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
+
+/* Custom cursor (desktop with fine pointer + motion allowed) */
+(function() {
+  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supportsHover || reduceMotion) return;
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+  document.body.classList.add('has-custom-cursor');
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let ringX = mouseX, ringY = mouseY;
+  let active = false;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.transform = 'translate3d(' + mouseX + 'px,' + mouseY + 'px,0)';
+    if (!active) { active = true; dot.classList.add('is-active'); ring.classList.add('is-active'); }
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => { active = false; dot.classList.remove('is-active'); ring.classList.remove('is-active'); });
+  document.addEventListener('mouseenter', () => { active = true; dot.classList.add('is-active'); ring.classList.add('is-active'); });
+  function tick() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0)';
+    requestAnimationFrame(tick);
+  }
+  tick();
+  const sel = 'a, button, [role="button"], .event-photo, .back-link, .lightbox-nav, .lightbox-close';
+  document.querySelectorAll(sel).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
+  });
+})();
+</script>
+
+</body>
+</html>
