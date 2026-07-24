@@ -719,6 +719,9 @@
     transform-origin: center center;
     will-change: transform;
     touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
   }
   .lightbox-zoom {
     position: absolute;
@@ -1033,13 +1036,19 @@ const TIMELINE = [
       e.preventDefault();
       setScale(scale + (e.deltaY < 0 ? 0.3 : -0.3));
     }
+    img.draggable = false;
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+
     function onDown(e) {
       if (scale <= 1.001) return;
+      e.preventDefault();
       dragging = true; moved = false;
       sx = e.clientX; sy = e.clientY;
       img.style.transition = 'none';
       media.classList.add('is-panning');
-      try { img.setPointerCapture(e.pointerId); } catch (_) {}
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+      window.addEventListener('pointercancel', onUp);
     }
     function onMove(e) {
       if (!dragging) return;
@@ -1053,13 +1062,13 @@ const TIMELINE = [
       dragging = false;
       img.style.transition = '';
       media.classList.remove('is-panning');
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
     }
     img.addEventListener('click', onClick);
     media.addEventListener('wheel', onWheel, { passive: false });
     img.addEventListener('pointerdown', onDown);
-    img.addEventListener('pointermove', onMove);
-    img.addEventListener('pointerup', onUp);
-    img.addEventListener('pointercancel', onUp);
 
     return {
       zoomIn: () => setScale(scale + 0.5),
@@ -1067,6 +1076,9 @@ const TIMELINE = [
       reset: () => setScale(1),
       destroy: () => {
         media.removeEventListener('wheel', onWheel);
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        window.removeEventListener('pointercancel', onUp);
         img.style.transform = '';
         img.style.transition = '';
       }
