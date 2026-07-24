@@ -708,6 +708,59 @@
   @media (prefers-reduced-motion: reduce) {
     .cursor-dot, .cursor-ring { display: none !important; }
   }
+
+  /* ─── Zoom no lightbox ─────────────────────────────────── */
+  .lightbox-media.zoomable img { cursor: zoom-in; }
+  .lightbox-media.is-zoomed { overflow: hidden; }
+  .lightbox-media.is-zoomed img { cursor: grab; }
+  .lightbox-media.is-zoomed.is-panning img { cursor: grabbing; }
+  .lightbox-media img.zoom-ready {
+    transition: transform 0.28s var(--ease);
+    transform-origin: center center;
+    will-change: transform;
+    touch-action: none;
+  }
+  .lightbox-zoom {
+    position: absolute;
+    top: -56px;
+    right: 60px;
+    display: flex;
+    gap: 8px;
+    z-index: 6;
+  }
+  .lightbox-zoom button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(251, 250, 247, 0.3);
+    color: var(--cream);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s var(--ease);
+    font-family: var(--sans);
+  }
+  .lightbox-zoom button:hover {
+    background: var(--pink-deep);
+    border-color: var(--pink-deep);
+  }
+  .lightbox-hint {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(251, 250, 247, 0.55);
+    margin-top: 2px;
+  }
+  @media (max-width: 600px) {
+    .lightbox-zoom { top: -44px; right: 46px; gap: 6px; }
+    .lightbox-zoom button { width: 34px; height: 34px; font-size: 17px; }
+    .lightbox-hint { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -727,8 +780,8 @@
     <div class="work-eyebrow">Trabalhos de design · Linha do tempo</div>
     <h1 class="work-title">Portfólio de<br/><em>Design</em></h1>
     <p class="work-intro">
-      Meu trabalho como designer, em linha do tempo. Das primeiras peças às mais recentes —
-      a base criativa que ainda carrego na produção de eventos e endomarketing.
+      Meu trabalho como designer, em linha do tempo — de peças de social media a
+      identidade de marca completa. A base criativa que carrego por toda a área de marketing.
     </p>
     <div class="work-note">Acervo vivo — novas eras e peças serão adicionadas com o tempo</div>
   </div>
@@ -758,11 +811,17 @@
   </button>
   <div class="lightbox-inner">
     <span class="lightbox-counter" id="lightboxCounter"></span>
+    <div class="lightbox-zoom" id="lightboxZoom" hidden>
+      <button type="button" id="zoomOut" aria-label="Diminuir zoom">−</button>
+      <button type="button" id="zoomReset" aria-label="Restaurar tamanho">⟳</button>
+      <button type="button" id="zoomIn" aria-label="Aumentar zoom">+</button>
+    </div>
     <button class="lightbox-close" type="button" aria-label="Fechar visualização">&times;</button>
     <div class="lightbox-media" id="lightboxMedia"></div>
     <div class="lightbox-caption">
       <h3 id="lightboxTitle"></h3>
       <p id="lightboxSource"></p>
+      <p class="lightbox-hint" id="lightboxHint"></p>
     </div>
   </div>
 </div>
@@ -787,6 +846,21 @@
    placeholder elegante automaticamente.
    ════════════════════════════════════════════════════════════════ */
 const TIMELINE = [
+  {
+    period: "2025",
+    company: "Viviane Felix · Advocacia de Negócios",
+    role: "Identidade de marca · Projeto de branding",
+    note: "Sistema de marca completo para um escritório de advocacia empresarial: do logotipo e monograma à paleta, tipografia, regras de aplicação, papelaria e peças de social media — incluindo as capas de destaque do Instagram no padrão da marca.",
+    works: [
+      { file: "design/vf-brand-01.svg", thumb: "design/vf-brand-01.png", title: "Logotipo, monograma e variações" },
+      { file: "design/vf-brand-02.svg", thumb: "design/vf-brand-02.png", title: "Versões de cor e sistema do monograma" },
+      { file: "design/vf-brand-03.svg", thumb: "design/vf-brand-03.png", title: "Paleta, acessibilidade e tipografia" },
+      { file: "design/vf-brand-04.svg", thumb: "design/vf-brand-04.png", title: "Hierarquia tipográfica e regras de uso" },
+      { file: "design/vf-brand-05.svg", thumb: "design/vf-brand-05.png", title: "Assinatura, nome e papelaria" },
+      { file: "design/vf-brand-06.svg", thumb: "design/vf-brand-06.png", title: "Papel timbrado e assinatura de e-mail" },
+      { file: "design/vf-brand-07.svg", thumb: "design/vf-brand-07.png", title: "Capas de destaque para Instagram" }
+    ]
+  },
   {
     period: "2023 — 2024",
     company: "Burt Motos · Suzucamp",
@@ -885,7 +959,7 @@ const TIMELINE = [
       if (t === 'video') html += '<span class="work-play" aria-hidden="true"><span></span></span>';
       html +=     '<div class="placeholder">' + placeholderSVG + '<span>' + escapeHtml(it.title) + '</span></div>';
       if (t === 'image') {
-        html += '<img src="' + encodeURI(it.file) + '" alt="' + escapeAttr(it.title) + '" loading="lazy" ' +
+        html += '<img src="' + encodeURI(it.thumb || it.file) + '" alt="' + escapeAttr(it.title) + '" loading="lazy" ' +
                   'onload="this.previousElementSibling && this.previousElementSibling.classList.contains(\'placeholder\') && this.previousElementSibling.remove();" ' +
                   'onerror="this.remove();" />';
       } else if (t === 'video') {
@@ -911,10 +985,95 @@ const TIMELINE = [
   const closeBtn = lightbox.querySelector('.lightbox-close');
   const prevBtn = document.getElementById('lightboxPrev');
   const nextBtn = document.getElementById('lightboxNext');
+  const zoomWrap = document.getElementById('lightboxZoom');
+  const zoomInBtn = document.getElementById('zoomIn');
+  const zoomOutBtn = document.getElementById('zoomOut');
+  const zoomResetBtn = document.getElementById('zoomReset');
+  const hintEl = document.getElementById('lightboxHint');
 
   let currentIndex = -1;
+  let zoomCtl = null;
 
-  function resetMediaClasses() { media.classList.remove('is-portrait', 'has-embed'); }
+  function teardownZoom() {
+    if (zoomCtl) { zoomCtl.destroy(); zoomCtl = null; }
+    media.classList.remove('zoomable', 'is-zoomed', 'is-panning');
+    if (zoomWrap) zoomWrap.hidden = true;
+    if (hintEl) hintEl.textContent = '';
+  }
+
+  function setupZoom(img) {
+    let scale = 1, tx = 0, ty = 0;
+    let dragging = false, moved = false, sx = 0, sy = 0;
+    img.classList.add('zoom-ready');
+    media.classList.add('zoomable');
+
+    function clampPan() {
+      const bw = img.offsetWidth, bh = img.offsetHeight;
+      const mx = Math.max(0, (bw * scale - bw) / 2);
+      const my = Math.max(0, (bh * scale - bh) / 2);
+      tx = Math.min(mx, Math.max(-mx, tx));
+      ty = Math.min(my, Math.max(-my, ty));
+    }
+    function apply() {
+      clampPan();
+      img.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+      media.classList.toggle('is-zoomed', scale > 1.001);
+    }
+    function setScale(ns) {
+      ns = Math.min(4, Math.max(1, Math.round(ns * 100) / 100));
+      if (ns === 1) { tx = 0; ty = 0; }
+      scale = ns;
+      apply();
+    }
+    function onClick() {
+      if (moved) { moved = false; return; }
+      setScale(scale > 1.001 ? 1 : 2.4);
+    }
+    function onWheel(e) {
+      e.preventDefault();
+      setScale(scale + (e.deltaY < 0 ? 0.3 : -0.3));
+    }
+    function onDown(e) {
+      if (scale <= 1.001) return;
+      dragging = true; moved = false;
+      sx = e.clientX; sy = e.clientY;
+      img.style.transition = 'none';
+      media.classList.add('is-panning');
+      try { img.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) + Math.abs(dy) > 3) moved = true;
+      tx += dx; ty += dy; sx = e.clientX; sy = e.clientY;
+      apply();
+    }
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+      img.style.transition = '';
+      media.classList.remove('is-panning');
+    }
+    img.addEventListener('click', onClick);
+    media.addEventListener('wheel', onWheel, { passive: false });
+    img.addEventListener('pointerdown', onDown);
+    img.addEventListener('pointermove', onMove);
+    img.addEventListener('pointerup', onUp);
+    img.addEventListener('pointercancel', onUp);
+
+    return {
+      zoomIn: () => setScale(scale + 0.5),
+      zoomOut: () => setScale(scale - 0.5),
+      reset: () => setScale(1),
+      destroy: () => {
+        media.removeEventListener('wheel', onWheel);
+        img.style.transform = '';
+        img.style.transition = '';
+      }
+    };
+  }
+
+  function resetMediaClasses() { media.classList.remove('is-portrait', 'has-embed'); teardownZoom(); }
   function setOrientation(p) { media.classList.toggle('is-portrait', !!p); }
   function showSpinner() { resetMediaClasses(); media.innerHTML = '<div class="lightbox-spinner" aria-hidden="true"></div>'; }
   function showError(url) {
@@ -930,6 +1089,9 @@ const TIMELINE = [
       setOrientation(img.naturalHeight > img.naturalWidth);
       media.innerHTML = '';
       media.appendChild(img);
+      zoomCtl = setupZoom(img);
+      if (zoomWrap) zoomWrap.hidden = false;
+      if (hintEl) hintEl.textContent = 'Clique na imagem ou use a rolagem para dar zoom · arraste para mover';
     };
     img.onerror = () => showError(url);
     img.src = url;
@@ -989,6 +1151,9 @@ const TIMELINE = [
   closeBtn.addEventListener('click', closeLightbox);
   prevBtn.addEventListener('click', () => navigate(-1));
   nextBtn.addEventListener('click', () => navigate(1));
+  if (zoomInBtn) zoomInBtn.addEventListener('click', () => zoomCtl && zoomCtl.zoomIn());
+  if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => zoomCtl && zoomCtl.zoomOut());
+  if (zoomResetBtn) zoomResetBtn.addEventListener('click', () => zoomCtl && zoomCtl.reset());
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('is-open')) return;
